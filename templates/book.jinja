@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the library!</h1>
+        <nav>
+            <ul>
+                <li><a href="/books">Home</a></li>
+            </ul>
+        </nav>
+</header>
+
+<section class="table--container">
+<table>
+<tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Genre</th>
+    <th></th>
+</tr>
+
+<tr>
+    <td>{{ book.title }}</td>
+    <td>{{ book.author }}</td>
+    <td>{{ book.genre }}</td>
+    <td>
+    <form action="/books/delete/{{ book.title }}" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+</tr>   
+
+</table>
+</section>
+
+
+    
+</body>
+</html>
